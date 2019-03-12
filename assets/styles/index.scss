@@ -1,1 +1,32 @@
 @import '~bootstrap/scss/bootstrap';
+
+h1 {
+  font-family: 'Merienda', cursive;
+  padding: 2%;
+  text-align: center;
+}
+
+h2 {
+  font-family: 'Merienda', cursive;
+  padding: 2%;
+}
+
+$alt-color: $cyan;
+$body-bg-color: $gray-200;
+$font-color: $light;
+
+body {
+  background-color: $body-bg-color;
+  background-image: url('public/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.alt-color {
+  background-color: $alt-color;
+}
+
+.form-group  {
+  margin: 2% 25%;
+  width: 40%;
+}

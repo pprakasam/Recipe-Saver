@@ -28,14 +28,17 @@ const onSignOut = (event) => {
     .then(ui.signOutSuccess)
     .catch(ui.authFailure)
 }
+const onShowChangePassword = () => {
+  $('.password-div').css('display', 'block')
+}
 
-const onChangePassword = (event) => {
+const onUpdatePassword = (event) => {
   console.log('in change password')
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  api.changePassword(formData)
-    .then(ui.changePasswordSuccess)
+  api.updatePassword(formData)
+    .then(ui.updatePasswordSuccess)
     .catch(ui.authFailure)
 }
 
@@ -57,18 +60,32 @@ const onGetRecipe = (event) => {
     .catch(ui.recipeFailure)
 }
 
+const onShowAddRecipe = () => {
+  $('.recipe-bar').css('display', 'block')
+  $('.recipe-bar').html('')
+  $('.details-bar').html('')
+  const addRecipeHtml = (`
+    <div class="add-bar">
+      <form class="add-recipe">
+        <input name="recipe[recipe_name]" type="text" placeholder="Recipe Name">
+        <input name="recipe[category]" type="text" placeholder="Category">
+        <input name="recipe[ingredients]" type="text" placeholder="Ingredients">
+        <input name="recipe[instructions]" type="text" placeholder="Instructions">
+        <input type="Submit" value="Add Recipe">
+      </form>
+    </div>
+    `)
+  $('.recipe-bar').append(addRecipeHtml)
+}
+
 const onAddRecipe = (event) => {
-  console.log('in add block')
-  $('.add-bar').css('display', 'block')
-  $('.add-bar').on('submit', '.add-recipe', (event) => {
-    event.preventDefault()
-    const form = event.target
-    const formData = getFormFields(form)
-    console.log(formData.recipe)
-    api.addRecipe(formData.recipe)
-      .then(ui.addRecipeSuccess)
-      .catch(ui.recipeFailure)
-  })
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  console.log(formData.recipe)
+  api.addRecipe(formData.recipe)
+    .then(ui.addRecipeSuccess)
+    .catch(ui.recipeFailure)
 }
 
 const onUpdateRecipe = (event) => {
@@ -99,9 +116,11 @@ module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
-  onChangePassword,
+  onShowChangePassword,
+  onUpdatePassword,
   onShowRecipes,
   onGetRecipe,
+  onShowAddRecipe,
   onAddRecipe,
   onUpdateRecipe,
   onDeleteRecipe

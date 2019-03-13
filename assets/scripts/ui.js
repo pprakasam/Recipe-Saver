@@ -1,6 +1,6 @@
 const store = require('./store.js')
 
-const signUpSuccess = () => {
+const signUpSuccess = (responseData) => {
   $('form').trigger('reset')
   $('.user-message').text('Successfully Signed Up')
   setTimeout(() => {
@@ -21,7 +21,9 @@ const signInSuccess = (responseData) => {
   $('.user-auth').css('display', 'none')
   $('.main-page').css('display', 'block')
   $('.display-recipes').css('display', 'block')
-  $('body').css('background-image', 'none')
+  $('.recipe-bar').html('')
+  $('.details-bar').html('')
+  $('body').css('background-image', 'url(public/main-bg.jpg)')
 }
 
 const signOutSuccess = (responseData) => {
@@ -29,6 +31,7 @@ const signOutSuccess = (responseData) => {
   store.user = null
   $('.user-auth').css('display', 'block')
   $('.signin').css('display', 'none')
+  $('.password-div').css('display', 'none')
   $('.signup').css('display', 'block')
   $('.user-message').text('Successfully Signed Out')
   $('.main-page').css('display', 'none')
@@ -39,8 +42,9 @@ const signOutSuccess = (responseData) => {
   }, 3000)
 }
 
-const changePasswordSuccess = (responseData) => {
+const updatePasswordSuccess = (responseData) => {
   $('form').trigger('reset')
+  $('.password-div').css('display', 'none')
   console.log('password changed')
 }
 
@@ -101,7 +105,6 @@ const updateRecipeSuccess = (responseData) => {
 
 const deleteRecipeSuccess = (responseData) => {
   console.log('deleted Successfully')
-  $('form').trigger('reset')
   $('.details-bar').html('')
 }
 
@@ -118,7 +121,7 @@ module.exports = {
   signInSuccess,
   signOutSuccess,
   authFailure,
-  changePasswordSuccess,
+  updatePasswordSuccess,
   showRecipesSuccess,
   getRecipeSuccess,
   addRecipeSuccess,

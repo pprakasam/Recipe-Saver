@@ -81,7 +81,7 @@
         </form>
       <p class="recipe-message"></p>
   </div> -->
-  <div class="side-bar">
+  <!-- <div class="side-bar">
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button"
       id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
@@ -98,20 +98,55 @@
 <p>
   <button type="submit" class="add-btn">Add Recipe</button>
 </p>
-</div>
-<div class="add-bar" style="display:none">
+</div> -->
+<!-- <div class="add-bar" style="display:none">
   <form class="add-recipe">
-    <div class="form-group"><input name="recipe[recipe_name]" type="text" placeholder="Recipe Name"></div>
-    <div class="form-group"><input name="recipe[category]" type="text" placeholder="Category"></div>
-    <div class="form-group"><input name="recipe[ingredients]" type="text" placeholder="Ingredients"></div>
-    <div class="form-group"><input name="recipe[instructions]" type="text" placeholder="Instructions"></div>
-    <div class="form-group"><input type="Submit" value ="Add Recipe"></div>
+    <input name="recipe[recipe_name]" type="text" placeholder="Recipe Name">
+    <input name="recipe[category]" type="text" placeholder="Category">
+    <input name="recipe[ingredients]" type="text" placeholder="Ingredients">
+    <input name="recipe[instructions]" type="text" placeholder="Instructions">
+    <input type="Submit" value ="Add Recipe">
     </form>
 </div>
 <div class="recipe-bar" style="display:none">
 </div>
 <div class="details-bar" style="display:none">
-</div>
+</div> -->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-2 side-bar">
+      <div class="dropdown">
+        <button class="btn btn-outline-dark main-btn dropdown-toggle" type="button"
+          id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">
+          My Account
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="change-password" href="#">Change Password</a>
+        </div>
+      </div>
+      <div class="password-div" style="display:none">
+          <form class="update-password">
+            <input class="form-control mr-sm-2" type="password" placeholder="Old Password"
+              name="passwords[old]">
+           <input class="form-control mr-sm-2" type="password" placeholder="New Password"
+              name="passwords[new]">
+           <button class="btn btn-sm btn-outline-dark main-btn my-2 my-sm-0" type="submit">Change Password</button>
+          </form>
+    </div>
+    <p><button type="submit" class="btn btn-outline-dark main-btn show-recipes">My Recipes</button></p>
+    <p><button type="submit" class="add-btn btn btn-outline-dark main-btn">Add Recipe</button></p>
+    </div>
+    <div class="col-sm-5 recipe-bar" style="display:none">
+
+    </div>
+    <div class="col-sm-5 details-bar" style="display:none">
+
+    </div>
+    </div>
+
+  </div>
 </div>
 </body>
 

@@ -6,11 +6,6 @@ h1 {
   text-align: center;
 }
 
-h2 {
-  font-family: 'Merienda', cursive;
-  padding: 2%;
-}
-
 $alt-color: $cyan;
 $body-bg-color: $gray-200;
 $font-color: $light;
@@ -31,38 +26,6 @@ body {
   width: 40%;
 }
 
-.side-bar {
-  background-color: white;
-  float: left;
-  height: 700px;
-  text-align: center;
-  width: 250px;
-  margin: 5px;
-}
-
-.recipe-bar {
-  background-color: white;
-  float: left;
-  height: 700px;
-  text-align: center;
-  width: 400px;
-  margin: 5px;
-}
-
-.details-bar {
-  background-color: white;
-  float: left;
-  height: 700px;
-  text-align: center;
-  width: 500px;
-  margin: 5px;
-}
-
-.add-bar {
-  background-color: white;
-  float: left;
-  height: 700px;
-  text-align: center;
-  width: 800px;
-  margin: 5px;
+.main-btn {
+  margin: 25px;
 }

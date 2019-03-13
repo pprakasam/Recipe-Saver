@@ -27,8 +27,77 @@ const signOut = (formData) => {
   })
 }
 
+const changePassword = (formData) => {
+  return $.ajax({
+    url: config.apiUrl + '/change-password',
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: formData
+  })
+}
+
+const showRecipes = (formData) => {
+  return $.ajax({
+    url: config.apiUrl + '/recipes',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const getRecipe = (id) => {
+  return $.ajax({
+    url: config.apiUrl + `/recipes/${id}`,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const addRecipe = (recipe) => {
+  return $.ajax({
+    url: config.apiUrl + '/recipes',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {recipe}
+  })
+}
+
+const updateRecipe = (recipe) => {
+  return $.ajax({
+    url: config.apiUrl + `/recipes/${recipe.id}`,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {recipe}
+  })
+}
+
+const deleteRecipe = (id) => {
+  return $.ajax({
+    url: config.apiUrl + `/recipes/${id}`,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
-  signOut
+  signOut,
+  changePassword,
+  showRecipes,
+  getRecipe,
+  addRecipe,
+  updateRecipe,
+  deleteRecipe
 }

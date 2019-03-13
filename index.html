@@ -56,6 +56,63 @@
     </form>
   </div>
 </div>
+<div class="main-page" style="display:none">
+    <nav class="navbar navbar-light bg-dark justify-content-between">
+      <span class="navbar-brand text-white mb-0 h1">Recipe Saver</span>
+      <form class="form-inline my-2 my-lg-0 signout">
+      <button type="submit" class="btn btn-primary">Sign Out</button>
+    </form>
+    </nav>
+  <!-- <div class="display-recipes" style="display:none">
+    <button type="submit" class="show-recipes">Show all Recipes</button>
+    <form class="add-recipe">
+        <input name="recipe[recipe_name]" type="text" placeholder="Recipe Name">
+        <input name="recipe[category]" type="text" placeholder="Category">
+        <input name="recipe[ingredients]" type="text" placeholder="Ingredients">
+        <input name="recipe[instructions]" type="text" placeholder="Instructions">
+        <input type="Submit" value ="Add Recipe">
+      </form>
+      <form class="update-recipe-form" style="display:none">
+          <input name="recipe[recipe_name]" type="text" placeholder="Recipe Name">
+          <input name="recipe[category]" type="text" placeholder="Category">
+          <input name="recipe[ingredients]" type="text" placeholder="Ingredients">
+          <input name="recipe[instructions]" type="text" placeholder="Instructions">
+          <input type="Submit" value ="Update Recipe">
+        </form>
+      <p class="recipe-message"></p>
+  </div> -->
+  <div class="side-bar">
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button"
+      id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+      aria-expanded="false">
+      My Account
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a href="#">Change Password</a>
+    </div>
+  </div>
+  <p>
+  <button type="submit" class="show-recipes">Show all Recipes</button>
+</p>
+<p>
+  <button type="submit" class="add-btn">Add Recipe</button>
+</p>
+</div>
+<div class="add-bar" style="display:none">
+  <form class="add-recipe">
+    <div class="form-group"><input name="recipe[recipe_name]" type="text" placeholder="Recipe Name"></div>
+    <div class="form-group"><input name="recipe[category]" type="text" placeholder="Category"></div>
+    <div class="form-group"><input name="recipe[ingredients]" type="text" placeholder="Ingredients"></div>
+    <div class="form-group"><input name="recipe[instructions]" type="text" placeholder="Instructions"></div>
+    <div class="form-group"><input type="Submit" value ="Add Recipe"></div>
+    </form>
+</div>
+<div class="recipe-bar" style="display:none">
+</div>
+<div class="details-bar" style="display:none">
+</div>
+</div>
 </body>
 
 </html>

@@ -30,7 +30,6 @@ const signOutSuccess = (responseData) => {
   $('form').trigger('reset')
   store.user = null
   $('.user-auth').css('display', 'block')
-  $('.signin').css('display', 'none')
   $('.password-div').css('display', 'none')
   $('.signup').css('display', 'block')
   $('.user-message').text('Successfully Signed Out')

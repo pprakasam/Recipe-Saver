@@ -67,11 +67,25 @@ const onShowAddRecipe = () => {
   const addRecipeHtml = (`
     <div class="add-bar">
       <form class="add-recipe">
-        <input name="recipe[recipe_name]" type="text" placeholder="Recipe Name">
-        <input name="recipe[category]" type="text" placeholder="Category">
-        <input name="recipe[ingredients]" type="text" placeholder="Ingredients">
-        <input name="recipe[instructions]" type="text" placeholder="Instructions">
-        <input type="Submit" value="Add Recipe">
+        <div class="form-group">
+          <label for="recipeName">Recipe Name</label>
+          <input name="recipe[recipe_name]" type="text">
+        </div>
+        <div class="form-group">
+          <label for="recipeCategory">Category</label>
+          <input name="recipe[category]" type="text">
+        </div>
+        <div class="form-group">
+          <label for="recipeIngredients">Ingredients</label>
+          <input name="recipe[ingredients]" type="text" >
+        </div>
+        <div class="form-group">
+          <label for="recipeInstructions">Instructions</label>
+          <input name="recipe[instructions]" type="text">
+        </div>
+        <div class="form-group">
+          <input type="Submit" value="Add Recipe">
+        </div>
       </form>
     </div>
     `)

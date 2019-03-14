@@ -32,6 +32,7 @@ const signOutSuccess = (responseData) => {
   $('.user-auth').css('display', 'block')
   $('.password-div').css('display', 'none')
   $('.signup').css('display', 'block')
+  $('.signin').css('display', 'none')
   $('.user-message').text('Successfully Signed Out')
   $('.main-page').css('display', 'none')
   $('.display-recipes').css('display', 'none')
@@ -76,8 +77,8 @@ const getRecipeSuccess = (responseData) => {
     <h5>Name: ${responseData.recipe.recipe_name}</h5>
     <p>Category: ${responseData.recipe.category}</p>
     <form class="update-recipe">
-    <textarea name="recipe[ingredients]" rows="3" cols="50">${responseData.recipe.ingredients}</textarea>
-    <textarea name="recipe[instructions]" rows="3" cols="50">${responseData.recipe.instructions}</textarea>
+    <textarea name="recipe[ingredients]" rows="5" cols="50">${responseData.recipe.ingredients}</textarea>
+    <textarea name="recipe[instructions]" rows="5" cols="50">${responseData.recipe.instructions}</textarea>
     <p><input type="submit" value="Update Recipe"></p>
     </form>
     <form class="delete-recipe">
@@ -92,12 +93,13 @@ const getRecipeSuccess = (responseData) => {
 const addRecipeSuccess = (responseData) => {
   console.log(responseData)
   $('form').trigger('reset')
-  $('.recipe-message').text('Successfully added Recipe!!')
 }
 
 const updateRecipeSuccess = (responseData) => {
   $('form').trigger('reset')
   getRecipeSuccess(responseData)
+  const updateMessage = (`<p>Successfully Updated the Recipe</p>`)
+  $('.details-bar').append(updateMessage)
   console.log(responseData)
   console.log('updated Successfully')
 }

@@ -44,7 +44,7 @@ const onUpdatePassword = (event) => {
 
 const onShowRecipes = (event) => {
   console.log('In show block')
-  event.preventDefault()
+  if (event) { event.preventDefault() }
   api.showRecipes()
     .then(ui.showRecipesSuccess)
     .catch(ui.recipeFailure)
@@ -77,11 +77,11 @@ const onShowAddRecipe = () => {
         </div>
         <div class="form-group">
           <label for="recipeIngredients">Ingredients</label>
-          <input name="recipe[ingredients]" type="text" >
+          <textarea name="recipe[ingredients]" rows="5" cols="50"></textarea>
         </div>
         <div class="form-group">
           <label for="recipeInstructions">Instructions</label>
-          <input name="recipe[instructions]" type="text">
+          <textarea name="recipe[instructions]" rows="5" cols="50"></textarea>
         </div>
         <div class="form-group">
           <input type="Submit" value="Add Recipe">
@@ -120,10 +120,11 @@ const onDeleteRecipe = (event) => {
   event.preventDefault()
   api.deleteRecipe(recipeId)
     .then(ui.deleteRecipeSuccess)
+    .then(onShowRecipes)
     .catch(ui.recipeFailure)
-  api.showRecipes()
-    .then(ui.showRecipesSuccess)
-    .catch(ui.recipeFailure)
+  // api.showRecipes()
+  //   .then(ui.showRecipesSuccess)
+  //   .catch(ui.recipeFailure)
 }
 
 module.exports = {

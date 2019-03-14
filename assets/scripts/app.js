@@ -10,6 +10,10 @@ const events = require('./events.js')
 $(() => {
   // your JS code goes here
   $('.signup').on('submit', events.onSignUp)
+  $('.show-signin').on('click', () => {
+    $('.signin').css('display', 'block')
+    $('.signup').css('display', 'none')
+  })
   $('.signin').on('submit', events.onSignIn)
   $('.signout').on('submit', events.onSignOut)
   $('#modal-form').on('submit', events.onUpdatePassword)

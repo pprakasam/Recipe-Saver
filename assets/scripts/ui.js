@@ -11,8 +11,12 @@ const signUpSuccess = (responseData) => {
 const authFailure = () => {
   $('form').trigger('reset')
   $('.user-message').text('Error. Something went wrong!!')
+  $('.password-msg').text('Unsuccessful. Try Again!!')
   setTimeout(() => {
     $('.user-message').text('')
+  }, 3000)
+  setTimeout(() => {
+    $('.failure-msg').text('')
   }, 3000)
 }
 
@@ -44,12 +48,14 @@ const signOutSuccess = (responseData) => {
 
 const updatePasswordSuccess = (responseData) => {
   $('form').trigger('reset')
-  $('.password-div').css('display', 'none')
+  $('.password-msg').text('Password changed!!')
+  setTimeout(() => {
+    $('.password-msg').text('')
+  }, 3000)
   console.log('password changed')
 }
 
 const showRecipesSuccess = (responseData) => {
-  console.log(responseData)
   $('.recipe-bar').html('')
   $('.add-bar').css('display', 'none')
   responseData.recipes.forEach(recipe => {
@@ -60,10 +66,6 @@ const showRecipesSuccess = (responseData) => {
     <p><button type="submit" class="get-recipe">Get Recipe</button></p>
     </section>
     `)
-    // <p>Ingredients: ${recipe.ingredients}</p>
-    // <p>Instructions: ${recipe.instructions}</p>
-    // <textarea class="update-ingredient" rows="3" cols="50" style="display:none">${recipe.ingredients}</textarea>
-    // <textarea class="update-instructions" rows="3" cols="50" style="display:none">${recipe.instructions}</textarea>
     $('.recipe-bar').css('display', 'block')
     $('.recipe-bar').append(recipeHtml)
   })
@@ -71,7 +73,6 @@ const showRecipesSuccess = (responseData) => {
 
 const getRecipeSuccess = (responseData) => {
   $('.add-bar').css('display', 'none')
-  console.log(responseData)
   const recipeHtml = (`
     <section class="recipes" data-id=${responseData.recipe.id}>
     <h5>Name: ${responseData.recipe.recipe_name}</h5>
@@ -91,7 +92,6 @@ const getRecipeSuccess = (responseData) => {
 }
 
 const addRecipeSuccess = (responseData) => {
-  console.log(responseData)
   $('form').trigger('reset')
 }
 
@@ -100,12 +100,9 @@ const updateRecipeSuccess = (responseData) => {
   getRecipeSuccess(responseData)
   const updateMessage = (`<p>Successfully Updated the Recipe</p>`)
   $('.details-bar').append(updateMessage)
-  console.log(responseData)
-  console.log('updated Successfully')
 }
 
 const deleteRecipeSuccess = (responseData) => {
-  console.log('deleted Successfully')
   $('.details-bar').html('')
 }
 

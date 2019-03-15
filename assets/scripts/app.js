@@ -13,6 +13,12 @@ $(() => {
   $('.show-signin').on('click', () => {
     $('.signin').css('display', 'block')
     $('.signup').css('display', 'none')
+    $('form').trigger('reset')
+  })
+  $('.show-signup').on('click', () => {
+    $('.signin').css('display', 'none')
+    $('.signup').css('display', 'block')
+    $('form').trigger('reset')
   })
   $('.signin').on('submit', events.onSignIn)
   $('.signout').on('submit', events.onSignOut)

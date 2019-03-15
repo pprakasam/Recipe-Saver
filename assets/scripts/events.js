@@ -16,7 +16,6 @@ const onSignIn = (event) => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  // console.log(formData)
   api.signIn(formData)
     .then(ui.signInSuccess)
     .catch(ui.authFailure)
@@ -28,12 +27,12 @@ const onSignOut = (event) => {
     .then(ui.signOutSuccess)
     .catch(ui.authFailure)
 }
+
 const onShowChangePassword = () => {
   $('.password-div').css('display', 'block')
 }
 
 const onUpdatePassword = (event) => {
-  console.log('in change password')
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
@@ -43,7 +42,6 @@ const onUpdatePassword = (event) => {
 }
 
 const onShowRecipes = (event) => {
-  console.log('In show block')
   if (event) { event.preventDefault() }
   api.showRecipes()
     .then(ui.showRecipesSuccess)
@@ -51,9 +49,7 @@ const onShowRecipes = (event) => {
 }
 
 const onGetRecipe = (event) => {
-  console.log('In get block')
   const recipeId = $(event.target).closest('section').data('id')
-  console.log(recipeId)
   event.preventDefault()
   api.getRecipe(recipeId)
     .then(ui.getRecipeSuccess)
@@ -96,35 +92,28 @@ const onAddRecipe = (event) => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  console.log(formData.recipe)
   api.addRecipe(formData.recipe)
     .then(ui.addRecipeSuccess)
     .catch(ui.recipeFailure)
 }
 
 const onUpdateRecipe = (event) => {
-  console.log('in update block')
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
   formData.recipe.id = $(event.target).closest('section').data('id')
-  console.log(formData.recipe)
   api.updateRecipe(formData.recipe)
     .then(ui.updateRecipeSuccess)
     .catch(ui.recipeFailure)
 }
 
 const onDeleteRecipe = (event) => {
-  console.log('in delete block')
   const recipeId = $(event.target).closest('section').data('id')
   event.preventDefault()
   api.deleteRecipe(recipeId)
     .then(ui.deleteRecipeSuccess)
     .then(onShowRecipes)
     .catch(ui.recipeFailure)
-  // api.showRecipes()
-  //   .then(ui.showRecipesSuccess)
-  //   .catch(ui.recipeFailure)
 }
 
 module.exports = {

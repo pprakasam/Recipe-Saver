@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Recipe Saver</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <div class="user-auth">
+    <h1>Recipe Saver</h1>
+    <!-- <div class="signup" style="display:none"> -->
+    <div class="signup">
+      <form class="sign-up">
+        <div class="form-group">
+          <label for="signupEmail">Email address</label>
+          <input type="email" name="credentials[email]" class="form-control" id="signupEmail">
+        </div>
+        <div class="form-group">
+          <label for="password1">Password</label>
+          <input type="password" name="credentials[password]" class="form-control" id="password1">
+        </div>
+        <div class="form-group">
+          <label for="confirm-password">Confirm Password</label>
+          <input type="password" name="credentials[password_confirmation]" class="form-control" id="confirm-password">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Sign Up</button> Have already an account?
+          <a href=# class="show-signin">Sign In Here</a>
+        </div>
+      </form>
+    </div>
+
+    <div class="signin" style="display:none">
+      <form class="sign-in">
+        <div class="form-group">
+          <label for="signinEmail">Email address</label>
+          <input type="email" name="credentials[email]" class="form-control" id="signinEmail">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" name="credentials[password]" class="form-control" id="password">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">Sign In</button> Don't have an Account?
+          <a href=# class="show-signup">Sign Up Here</a>
+        </div>
+      </form>
+    </div>
+    <div class="user-message">
+    </div>
+  </div>
+  <div class="main-page" style="display:none">
+    <nav class="navbar navbar-expand-sm navbar-light bg-dark justify-content-between">
+      <span class="navbar-brand text-white mb-0 h1">Recipe Saver</span>
+      <button type="submit" class="btn btn-primary show-recipes">My Recipes</button>
+      <button type="submit" class="add-btn btn btn-primary">Add Recipe</button>
+      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#ModalLong">
+        Change Password
+      </button>
+      <div class="modal fade" id="ModalLong" tabindex="-1" role="dialog" aria-labelledby="#passwordTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="passwordTitle">Change Password</h5>
+              <button type="button" class="close modal-close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form id="modal-form">
+                <div class="form-group">
+                  <label for="old-password">Old Password</label>
+                  <input type="password" name="passwords[old]" class="form-control" id="old-password" aria-describedby="old-password">
+                </div>
+                <div class="form-group">
+                  <label for="new-password">New Password</label>
+                  <input type="password" name="passwords[new]" class="form-control" id="new-password" aria-describedby="new-password">
+                </div>
+                <div class="modal-footer">
+                  <div class="password-msg"></div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form class="form-inline my-2 my-lg-0 signout">
+        <button type="submit" class="btn btn-primary">Sign Out</button>
+      </form>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-2 side-bar">
+        </div>
+        <div class="col-sm-5 recipe-bar justify-content-center align-items-center" style="display:none">
+
+        </div>
+        <div class="col-sm-5 details-bar" style="display:none">
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>

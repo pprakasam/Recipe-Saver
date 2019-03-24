@@ -2,7 +2,8 @@
 <p>Recipe Saver is a full stack rails application used to your favorite recipes
 online. A user is required to signup to begin saving recipes. After Signing in
 user can start adding new recipes, view all recipes, update or delete old
-recipes. </p>
+recipes. Back end is built on Rails.
+Back end Repo is <a href="https://github.com/pprakasam/recipe-saver-server">here</a></p>
 <h1>Technologies</h1>
 <p>HTML, CSS, jQuery, javascript, Bootstrap, AJAX</p>
 <h1>Wireframe</h1>

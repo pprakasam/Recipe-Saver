@@ -28,9 +28,9 @@ const onSignOut = (event) => {
     .catch(ui.authFailure)
 }
 
-const onShowChangePassword = () => {
-  $('.password-div').css('display', 'block')
-}
+// const onShowChangePassword = () => {
+//   $('.password-div').css('display', 'block')
+// }
 
 const onUpdatePassword = (event) => {
   event.preventDefault()
@@ -83,6 +83,7 @@ const onShowAddRecipe = () => {
           <input type="Submit" value="Add Recipe">
         </div>
       </form>
+      <div class="add-success" style="display:none">Recipe added Successfully</div>
     </div>
     `)
   $('.recipe-bar').append(addRecipeHtml)
@@ -120,7 +121,6 @@ module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
-  onShowChangePassword,
   onUpdatePassword,
   onShowRecipes,
   onGetRecipe,

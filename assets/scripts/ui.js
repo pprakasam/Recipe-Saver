@@ -16,7 +16,7 @@ const authFailure = () => {
     $('.user-message').text('')
   }, 3000)
   setTimeout(() => {
-    $('.failure-msg').text('')
+    $('.password-msg').text('')
   }, 3000)
 }
 
@@ -52,12 +52,19 @@ const updatePasswordSuccess = (responseData) => {
   setTimeout(() => {
     $('.password-msg').text('')
   }, 3000)
-  console.log('password changed')
 }
 
 const showRecipesSuccess = (responseData) => {
   $('.recipe-bar').html('')
   $('.add-bar').css('display', 'none')
+  if (responseData.recipes.length === 0) {
+    const recipeHtml = (`<h3>No recipes yet. Start adding recipes</h3>`)
+    $('.recipe-bar').css('display', 'block')
+    $('.recipe-bar').append(recipeHtml)
+    setTimeout(() => {
+      $('.recipe-bar').html('')
+    }, 1000)
+  }
   responseData.recipes.forEach(recipe => {
     const recipeHtml = (`
     <section class="recipes" data-id=${recipe.id}>
@@ -93,6 +100,10 @@ const getRecipeSuccess = (responseData) => {
 
 const addRecipeSuccess = (responseData) => {
   $('form').trigger('reset')
+  $('.add-success').show()
+  setTimeout(() => {
+    $('.add-success').hide()
+  }, 1000)
 }
 
 const updateRecipeSuccess = (responseData) => {

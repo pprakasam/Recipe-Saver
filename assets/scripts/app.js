@@ -23,6 +23,9 @@ $(() => {
   $('.signin').on('submit', events.onSignIn)
   $('.signout').on('submit', events.onSignOut)
   $('#modal-form').on('submit', events.onUpdatePassword)
+  $('.modal-close').on('click', function () {
+    $('#modal-form').trigger('reset')
+  })
   $('.show-recipes').on('click', events.onShowRecipes)
   $('.add-btn').on('click', events.onShowAddRecipe)
   $('.recipe-bar').on('submit', '.add-recipe', events.onAddRecipe)
